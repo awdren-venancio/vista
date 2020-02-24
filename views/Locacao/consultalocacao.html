@@ -1,0 +1,295 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Consultar Locação</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="">Home</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a>Locação</a>
+            </li>
+            <li class="breadcrumb-item active">
+                <strong>Consultar Locação</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <!-- {/* Filtros para a consulta de atendimentos. -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-lg-2 b-r">
+                            <h4 class="m-t-none m-b title-op">Protocolo</h4> <label
+                                class="optional-field p-rt-10">OPCIONAL</label>
+                            <div class="form-group p-rt-15 p-lt-15">
+                                <label class="control-label" for="input_acao_protocolo">Protocolo</label>
+                                <input id="input_protocolo" type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-lg-2 b-r">
+                            <h4 class="m-t-none m-b title-op">Cliente</h4> <label
+                                class="optional-field p-rt-10">OPCIONAL</label>
+                            <!-- Buscar pelo CPF do Cliente. -->
+                            <div class="form-group p-rt-15 p-lt-15">
+                                <label class="control-label" for="input_acao_cpfcnpj">CPF/CNPJ</label>
+                                <input id="input_cpfcnpj" type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-lg-4 b-r">
+                            <h4 class="m-t-none m-b title-op">Período</h4>
+                            <!-- Buscar todos os atendimentos em um período. -->
+                            <div class="col-lg-6">
+                                <div class="form-group" id="datainicial">
+                                    <label class="control-label" for="datainicial">Data Inicial</label>
+                                    <div class="input-group date">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-calendar" />
+                                        </span>
+                                        <input type="text" id="datainicial" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group" id="datafinal">
+                                    <label class="control-label" for="datafinal">Data Final</label>
+                                    <div class="input-group date">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-calendar" />
+                                        </span>
+                                        <input type="text" id="datafinal" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
+                            <h4 class="m-t-none m-b title-op">Situação</h4>
+                            <!-- {/* Filtrar o tipo - Pendente/Fechado -->
+                            <div class="form-group p-rt-15 p-lt-15">
+                                <label class="control-label" for="select_situacaopedido">Situação</label>
+                                <select class="select2 form-control" id="select_situacaopedido">
+                                    <option value="t">Todos</option>
+                                    <option value="r">Pendente</option>
+                                    <option value="p">Fechado</option>
+                                </select>
+
+
+                            </div>
+                        </div>
+                        <div class="col-lg-2 nomobile">
+                            <button type="button" id="btn_consultaratendimentos" title="Consultar Atendimentos"
+                                class="btn btn-w-m btn-m-s btn-primary clearfix-btn-s btn-icon">
+                                <i class="fa fa-spinner" />Consultar
+                            </button>
+                        </div>
+                        <div class="col-lg-1 onlymobile">
+                            <div class="form-group">
+                                <button type="button" id="btn_consultaratendimentos" title="Consultar Atendimentos"
+                                    class="btn btn-w-m btn-m-s-mobile btn-primary clearfix-btn-s btn-icon full-width">
+                                    <i class="fa fa-spinner" />Consultar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  {/* Retorno para a consulta de atendimentos. -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Protocolo</th>
+                                        <th>CPF/CNPJ</th>
+                                        <th>Cliente</th>
+                                        <th>Vendedor</th>
+                                        <th class="text-right">Valor (R$)</th>
+                                        <th class="text-center">Situação</th>
+                                        <th class="text-center">.:.</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1234</td>
+                                        <td>0123456789</td>
+                                        <td>Lorem ipsum nisl lacinia </td>
+                                        <td>Lorem ipsum</td>
+                                        <td class="text-right">1.200,00</td>
+                                        <td class="text-center"><span class="label label-success">Fechado</span></td>
+                                        <td class="text-center">
+                                            <button class="btn btn-xs btn-primary" data-toggle="modal"
+                                                id="btn_visualizarpedido" title="Visualizar Locação"
+                                                data-target="#VisualizarAtendimentoModal"><i
+                                                    class="fa fa-search" /></button>
+                                    </tr>
+                                    <tr>
+                                        <td>1234</td>
+                                        <td>0123456789</td>
+                                        <td>Lorem ipsum nisl lacinia </td>
+                                        <td>Lorem ipsum</td>
+                                        <td class="text-right">1.200,00</td>
+                                        <td class="text-center"><span class="label label-warning">Pendente</span></td>
+                                        <td class="text-center">
+                                            <button class="btn btn-xs btn-primary" data-toggle="modal"
+                                                id="btn_visualizarpedido" title="Visualizar Locação"
+                                                data-target="#VisualizarAtendimentoModal"><i
+                                                    class="fa fa-search" /></button>
+                                            <button ui-sref="locacao.novalocacao.cliente" id="btn_editarpedido"
+                                                title="Editar Locação" class="btn btn-xs btn-info"><i
+                                                    class="fa fa-pencil" /></button>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="VisualizarAtendimentoModal">
+    <div class="modal-dialog">
+        <div class="modal-header">
+            <h3 class="modalheader">Locação</h3>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-lg-5">
+                    <h4 class="m-t-none m-b title-op">locação</h4>
+                    <div class="col-lg-4">
+                        <label class="control-label">Protocolo</label> <br />0123456789
+                    </div>
+                    <div class="col-lg-8">
+                        <label class="control-label">Vendedor </label> <br />Lorem ipsum nisl
+                        lacinia
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <h4 class="m-t-none m-b title-op">Informações do Cliente</h4>
+                    <div class="col-lg-3">
+                        <label class="control-label">CPF/CNPJ</label> <br />0123456789
+                    </div>
+                    <div class="col-lg-6">
+                        <label class="control-label">Nome </label> <br />Lorem ipsum nisl
+                        lacinia
+                    </div>
+                    <div class="col-lg-3">
+                        <label class="control-label">Telefone</label> <br />0123456789
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="hr-line-dashed" />
+                <div class="col-lg-12">
+                    <h4 class="m-t-none m-b title-op">Informações de Entrega</h4>
+                    <div class="col-lg-1">
+                        <label class="control-label">CEP</label> <br />84015670
+                    </div>
+                    <div class="col-lg-3">
+                        <label class="control-label">Endereço</label> <br />Lorem ipsum nisl
+                        lacinia
+                    </div>
+                    <div class="col-lg-1">
+                        <label class="control-label">Nro.</label> <br />1246
+                    </div>
+                    <div class="col-lg-2">
+                        <label class="control-label">Compl.</label> <br />Casa 7
+                    </div>
+                    <div class="col-lg-2">
+                        <label class="control-label">Bairro</label> <br />Lorem ipsum
+                    </div>
+                    <div class="col-lg-2">
+                        <label class="control-label">Cidade</label> <br />Lorem ipsum
+                    </div>
+                    <div class="col-lg-1">
+                        <label class="control-label">Estado</label> <br />LI
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="hr-line-dashed" />
+                <div class="col-lg-12">
+                    <h4 class="m-t-none m-b title-op">Produtos</h4>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Grade X</th>
+                                <th>Grade X</th>
+                                <th>Descrição</th>
+                                <th class="text-center">Entrega</th>
+                                <th class="text-center">Montagem</th>
+                                <th>Local Saída</th>
+                                <th class="text-right">Valor Total (R$)</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1234</td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>Lorem ipsum nisl lacinia id orci fames rhoncus curabitur. </td>
+                                <td class="text-center">Sim</td>
+                                <td class="text-center">Não</td>
+                                <td>Loja</td>
+                                <td class="text-right">1.200,00</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr class="text-right">
+                                <td colspan="7"><strong>Valor Total da Locação</strong></td>
+                                <td><strong>1.200,00</strong></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="hr-line-dashed" />
+                <div class="col-lg-12">
+                    <h4 class="m-t-none m-b title-op">Formas de Pagamento</h4>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Forma de Pagamento</th>
+                                <th class="text-center">Parcelas</th>
+                                <th class="text-right">Valor (R$)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Dinheiro</td>
+                                <td class="text-center">1</td>
+                                <td class="text-right strong">600,00</td>
+                            </tr>
+                            <tr>
+                                <td>Cartão de Crédito</td>
+                                <td class="text-center">3</td>
+                                <td class="text-right strong">200,00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-white" data-dismiss="modal">Fechar</button>
+        </div>
+    </div>
+</div>

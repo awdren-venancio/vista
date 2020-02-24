@@ -1,0 +1,76 @@
+<div ng-controller="ProprietarioController as p">
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-lg-9">
+            <h2>Cadastrar Proprietário</h2>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a>Proprietário</a>
+                </li>
+                <li class="breadcrumb-item active">
+                    <strong>Cadastrar Proprietário</strong>
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="wrapper wrapper-content bg-white animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox">
+                    <div class="ibox-content">
+                        <div class="row p-tp-15">
+                            <div class="col-lg-12">
+                                <h4 class="m-t-none m-b title-op">Dados do Proprietário</h4>
+                                <div class="col-lg-6">
+                                    <div ng-class="{'has-error':formData.error.nome}" class="form-group p-rt-15 p-lt-15">
+                                        <label class="control-label" for="input_nome">Nome</label>
+                                        <input ng-model="formData.nome" id="input_nome" type="text" class="form-control" required />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                
+                                <div class="col-lg-3">
+                                    <div ng-class="{'has-error':formData.error.email}" class="form-group p-rt-15 p-lt-15">
+                                        <label class="control-label" for="input_email">E-mail</label>
+                                        <input ng-blur="validarEmail()" ng-model="formData.email" id="input_email" type="text" class="form-control" required />
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group p-rt-15 p-lt-15">
+                                        <label class="control-label" for="input_telefone">Telefone</label>
+                                        <input ng-model="formData.telefone" id="input_telefone" type="text" class="form-control" required />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                
+                                <div class="col-lg-3">
+                                    <div ng-class="{'has-error':formData.error.dia_repasse}" class="form-group p-rt-15 p-lt-15">
+                                        <label class="control-label" for="input_dia_repasse">Dia Repasse</label>
+                                        <input ng-model="formData.dia_repasse" id="input_dia_repasse" type="text" class="form-control" required />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 nomobile pull-right">
+                                <button type="button" id="btn_cadastrproprietario" ng-click="salvarProprietario()"
+                                    class="btn btn-w-m btn-m-s-min btn-primary clearfix-btn-s btn-icon">
+                                    <i class="fa fa-check"></i>Concluir Cadastro
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

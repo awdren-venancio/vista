@@ -1,0 +1,91 @@
+<div ng-controller="ImovelController as i">
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-lg-10">
+            <h2>Buscar Imóvel</h2>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a>Imóvel</a>
+                </li>
+                <li class="breadcrumb-item active">
+                    <strong>Buscar Imóvel</strong>
+                </li>
+            </ol>
+        </div>
+        <div class="col-lg-2">
+
+        </div>
+    </div>
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox">
+                    <div class="ibox-content">
+                        <div ng-busy="" class="row">
+                            <div class="col-lg-9">
+                                <h4 class="m-t-none m-b title-op">Informações do Imóvel</h4>
+                                <div class="col-lg-8">
+                                    <div class="form-group p-rt-15 p-lt-15">
+                                        <label class="control-label" for="input_endereco">Endereço ou Proprietário</label>
+                                        <input id="input_endereco" type="text" class="form-control" ng-change="buscarImovel(0)" ng-model="input_busca" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 nomobile">
+                                <button type="button" id="btn_buscaimovel" title="Buscar Imóvel" ng-click="teste()"
+                                    class="btn btn-w-m btn-m-s btn-primary clearfix-btn-s btn-icon">
+                                    <i class="fa fa-search" />Buscar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox">
+                    <div class="ibox-content">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Endereço</th>
+                                            <th>Proprietário</th>
+                                            <th class="text-center">.:.</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="x in imoveis">
+                                            <td>{{ x.endereco }} </td>
+                                            <td>{{ x.proprietario}} </td>
+                                            <td class="text-center">
+                                                <button class="btn btn-xs btn-info" title="Editar Cadastro"
+                                                    ng-click="i.editarCadastro(this)" id="btn_editarcadastro"><i
+                                                        class="fa fa-pencil"></i></button>
+                                                <button class="btn btn-xs btn-info" title="Iniciar Locação" ng-click="i.iniciarLocacao(this)"
+                                                    id="btn_iniciarlocacao"><i
+                                                        class="fa fa-shopping-cart"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr ng-if='(imoveis.length <= 0) || (!imoveis)'>
+                                            <td class="text-center p-tp-30" colspan="12">
+                                                <span class="info-op">
+                                                    <i class="fa fa-info fa-2x"></i>
+                                                    <br />Nenhum imóvel encontrado.
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
