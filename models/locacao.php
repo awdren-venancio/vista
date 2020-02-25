@@ -26,6 +26,17 @@
             return mysqli_query($this->conect, $sql);
         }
 
+        function getClientes(){
+            $sql = "select * from sys.cliente;";
+            $result = mysqli_query($this->conect, $sql);
+
+            $ret = array();
+            while($r = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+                array_push($ret, $r);
+            }
+            return $ret;
+        }
+
         function getImoveis(){
             $sql = "select
                         i.*,

@@ -28,14 +28,26 @@
 
         function getImovel(){
             if ($this->id_imovel > 0){
-                $sql = "select i.*, p.nome as proprietario from sys.imovel i
+                $sql = "select 
+                            i.*, 
+                            p.nome as nome_proprietario,
+                            p.email as email_proprietario,
+                            p.telefone as telefone_proprietario,
+                            p.dia_repasse
+                        from sys.imovel i
                         inner join proprietario p 
                         on p.id_proprietario = i.id_proprietario
                         where 
                             id_imovel='$this->id_imovel';";
 
             } else {
-                $sql = "select i.*, p.nome as proprietario from sys.imovel i
+                $sql = "select 
+                            i.*, 
+                            p.nome as nome_proprietario,
+                            p.email as email_proprietario,
+                            p.telefone as telefone_proprietario,
+                            p.dia_repasse
+                        from sys.imovel i
                         inner join proprietario p 
                         on p.id_proprietario = i.id_proprietario
                         where 

@@ -1,4 +1,4 @@
-<fieldset>
+<fieldset ng-controller="LocacaoController as l">
     <div class="row">
         <div class="col-lg-12">
             <div class="ibox nomargin-b-overrrule">
@@ -51,9 +51,9 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-4 nomobile pull-right">
-                            <button ui-sref="locacao.novalocacao.confirmacao" title="Próxima Etapa" type="button"
+                            <button ng-click="pegaValores()" ui-sref="locacao.novalocacao.confirmacao" title="Próxima Etapa" type="button"
                                 id="btn_prosseguir" class="btn btn-w-m btn-m-s-min btn-primary clearfix-btn-s btn-icon">
-                                <i class="fa fa-caret-right"></i> Prosseguir a
+                                <i class="fa fa-caret-right"></i> Prosseguir
                             </button>
                         </div>
                     </div>
