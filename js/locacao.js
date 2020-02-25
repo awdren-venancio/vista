@@ -1,4 +1,4 @@
-function ImovelController($scope, $http, $state, $location, SweetAlert, notify) {
+function LocacaoController($scope, $http, $state, $location, SweetAlert, notify) {
 
     var url = 'http://' + location.host;
 
@@ -21,7 +21,7 @@ function ImovelController($scope, $http, $state, $location, SweetAlert, notify) 
         $scope.formData.id_proprietario = '';
     }
 
-    $scope.salvarImovel = function () {
+    $scope.salvarLocacao = function () {
         $scope.formData.error.endereco = false;
         
         if ($scope.formData.endereco.length <= 2) {
@@ -71,7 +71,7 @@ function ImovelController($scope, $http, $state, $location, SweetAlert, notify) 
         }
     };
 
-    $scope.buscarImovel = function (id_imovel) {
+    $scope.buscarLocacao = function (id_imovel) {
         if (id_imovel > 0 || $scope.input_busca.length >= 1) {
             $http.get(url + '/controllers/imovel.php?acao=buscar&'+
             '&id_imovel='    + id_imovel+
@@ -93,34 +93,24 @@ function ImovelController($scope, $http, $state, $location, SweetAlert, notify) 
         }
     };
 
-    $scope.carregaProprietariosChosen = function(){
-        $http.get(url + '/controllers/proprietario.php?acao=buscar&'+
-            '&id_proprietario=0'+
-            '&string_busca=')
+    $scope.carregaImoveisChosen = function(){
+        $http.get(url + '/controllers/locacao.php?acao=getImoveis')
             .then(function (response) {
                 console.log(response)
-                $scope.proprietarios = response.data;
+                $scope.imoveis = response.data;
             }
         );
     }
-    $scope.carregaProprietariosChosen();
-
-    this.editarCadastro = function (componente) {
-        location.href = url + "/#/imovel/cadastroimovel/" + componente.x.id_imovel;
-    };
-
-    this.iniciarLocacao = function (componente) {
-        location.href = url + "/#/locacao/novalocacao/imovel/" + componente.x.id_imovel;
-    };
+    $scope.carregaImoveisChosen();
 
     $scope.pegaIdImovelDaUrl = function () {
         $scope.formData.id_imovel = $state.params.id_imovel;
         if ($scope.formData.id_imovel != '') {
-            $scope.buscarImovel($scope.formData.id_imovel);
+            $scope.buscarLocacao($scope.formData.id_imovel);
         }
     };
     $scope.pegaIdImovelDaUrl();
 }
 angular
     .module('inspinia')
-    .controller('ImovelController', ImovelController);
+    .controller('LocacaoController', LocacaoController);

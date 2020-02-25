@@ -1,0 +1,68 @@
+<fieldset>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox nomargin-b-overrrule">
+                <div class="ibox-content">
+                    <div class="row p-tp-15">
+                        <div class="col-lg-9">
+                            <h4 class="m-t-none m-b title-op">Período</h4>
+                            <div class="col-lg-3">
+                                <div class="form-group p-rt-15 p-lt-15">
+                                    <label class="control-label" for="input_data_ini">Data Inicial</label>
+                                    <input ng-model="formData.data_ini" id="input_data_ini" type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group p-rt-15 p-lt-15">
+                                    <label class="control-label" for="input_data_fim">Data Final</label>
+                                    <input ng-model="formData.data_fim" id="input_data_fim" type="text" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row p-tp-15">
+                        <div class="col-lg-9">
+                            <h4 class="m-t-none m-b title-op">Financeiro</h4>
+                            <div class="col-lg-3">
+                                <div class="form-group p-rt-15 p-lt-15">
+                                    <label class="control-label" for="input_taxa_administracao">Taxa de Administração</label>
+                                    <input ng-model="formData.taxa_administracao" id="input_taxa_administracao" type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group p-rt-15 p-lt-15">
+                                    <label class="control-label" for="input_valor_aluguel">Valor do Aluguel</label>
+                                    <input ng-model="formData.valor_aluguel" id="input_valor_aluguel" type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group p-rt-15 p-lt-15">
+                                    <label class="control-label" for="input_valor_condominio">Valor do Condomínio</label>
+                                    <input ng-model="formData.valor_condominio" id="input_valor_condominio" type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group p-rt-15 p-lt-15">
+                                    <label class="control-label" for="input_valor_iptu">Valor do IPTU</label>
+                                    <input ng-model="formData.valor_iptu" id="input_valor_iptu" type="text" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 nomobile pull-right">
+                            <button ui-sref="locacao.novalocacao.confirmacao" title="Próxima Etapa" type="button"
+                                id="btn_prosseguir" class="btn btn-w-m btn-m-s-min btn-primary clearfix-btn-s btn-icon">
+                                <i class="fa fa-caret-right"></i> Prosseguir a
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</fieldset>
+
+<script>
+</script>
