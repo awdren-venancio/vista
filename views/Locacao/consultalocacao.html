@@ -1,119 +1,218 @@
-<div class="row wrapper border-bottom white-bg page-heading">
-    <div class="col-lg-10">
-        <h2>Consultar Locação</h2>
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="">Home</a>
-            </li>
-            <li class="breadcrumb-item">
-                <a>Locação</a>
-            </li>
-            <li class="breadcrumb-item active">
-                <strong>Consultar Locação</strong>
-            </li>
-        </ol>
-    </div>
-    <div class="col-lg-2">
+<div ng-controller="LocacaoController as l">
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-lg-10">
+            <h2>Consultar Locação</h2>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a>Locação</a>
+                </li>
+                <li class="breadcrumb-item active">
+                    <strong>Consultar Locação</strong>
+                </li>
+            </ol>
+        </div>
+        <div class="col-lg-2">
 
+        </div>
     </div>
-</div>
-<div class="wrapper wrapper-content animated fadeInRight">
-    <!-- {/* Filtros para a consulta de atendimentos. -->
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="ibox">
-                <div class="ibox-content">
-                    <div class="row">
-                        <div class="col-lg-2 b-r">
-                            <h4 class="m-t-none m-b title-op">Cliente</h4> <label
-                                class="optional-field p-rt-10">OPCIONAL</label>
-                            <!-- Buscar pelo CPF do Cliente. -->
-                            <div class="form-group p-rt-15 p-lt-15">
-                                <label class="control-label" for="input_acao_cpfcnpj">Nome</label>
-                                <input id="input_cpfcnpj" type="text" class="form-control" />
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox">
+                    <div class="ibox-content">
+                        <div class="row">
+                            <div class="col-lg-5 b-r">
+                                <h4 class="m-t-none m-b title-op">Cliente</h4> 
+                                <div class="form-group p-rt-15 p-lt-15">
+                                    <label class="control-label" for="id_cliente">Nome</label>
+                                    <select chosen ng-change="pegaCliente()" id="id_cliente" name="id_cliente" class="chosen-select" ng-model="formData.id_cliente"
+                                        ng-options="cli.id_cliente as cli.nome for cli in clientes">
+                                        <option value></option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4 b-r">
-                            <h4 class="m-t-none m-b title-op">Período</h4>
-                            <!-- Buscar todos os atendimentos em um período. -->
-                            <div class="col-lg-6">
-                                <div class="form-group" id="datainicial">
-                                    <label class="control-label" for="datainicial">Data Inicial</label>
-                                    <div class="input-group date">
-                                        <span class="input-group-addon">
-                                            <i class="fa fa-calendar" />
-                                        </span>
-                                        <input type="text" id="datainicial" class="form-control" />
+                            <!--<div class="col-lg-4 b-r">
+                                <h4 class="m-t-none m-b title-op">Período</h4>
+                                <div class="col-lg-6">
+                                    <div class="form-group" id="datainicial">
+                                        <label class="control-label" for="datainicial">Data Inicial</label>
+                                        <div class="input-group date">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar" />
+                                            </span>
+                                            <input type="text" id="datainicial" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group" id="datafinal">
+                                        <label class="control-label" for="datafinal">Data Final</label>
+                                        <div class="input-group date">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar" />
+                                            </span>
+                                            <input type="text" id="datafinal" class="form-control" />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="form-group" id="datafinal">
-                                    <label class="control-label" for="datafinal">Data Final</label>
-                                    <div class="input-group date">
-                                        <span class="input-group-addon">
-                                            <i class="fa fa-calendar" />
-                                        </span>
-                                        <input type="text" id="datafinal" class="form-control" />
-                                    </div>
+                            <div class="col-lg-2">
+                                <h4 class="m-t-none m-b title-op">Situação</h4>
+                                <div class="form-group p-rt-15 p-lt-15">
+                                    <label class="control-label" for="select_situacaopedido">Situação</label>
+                                    <select class="select2 form-control" id="select_situacaopedido">
+                                        <option value="t">Todos</option>
+                                        <option value="p">Pendente</option>
+                                        <option value="a">Atraso</option>
+                                        <option value="q">Quitado</option>
+                                    </select>
+
+
                                 </div>
+                            </div>-->
+                            <div class="col-lg-2 nomobile">
+                                <button type="button" id="btn_consultaratendimentos" title="Consultar Atendimentos"
+                                    ng-click="buscarLocacoes()" class="btn btn-w-m btn-m-s btn-primary clearfix-btn-s btn-icon">
+                                    <i class="fa" />Consultar
+                                </button>
                             </div>
                         </div>
-                        <div class="col-lg-2">
-                            <h4 class="m-t-none m-b title-op">Situação</h4>
-                            <!-- {/* Filtrar o tipo - Pendente/Fechado -->
-                            <div class="form-group p-rt-15 p-lt-15">
-                                <label class="control-label" for="select_situacaopedido">Situação</label>
-                                <select class="select2 form-control" id="select_situacaopedido">
-                                    <option value="t">Todos</option>
-                                    <option value="r">Pendente</option>
-                                    <option value="p">Fechado</option>
-                                </select>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox">
+                    <div class="ibox-content">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Cliente</th>
+                                            <th>Imóvel</th>
+                                            <th>Proprietário</th>
+                                            <th class="text-right">Valor Contrato</th>
+                                            <th class="text-right">Saldo a Receber</th>
+                                            <th class="text-right">Saldo a Repassar</th>
+                                            <th class="text-center">.:.</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="x in locacoes">
+                                            <td style="padding: 3px;">{{x.nome_cliente}}</td>
+                                            <td style="padding: 3px;">{{x.endereco}}</td>
+                                            <td style="padding: 3px;">{{x.nome_proprietario}}</td>
+                                            <td style="padding: 3px;" class="text-right">{{x.valor_contrato | currency:'R$'}}</td>
+                                            <td style="padding: 3px;" class="text-right">{{x.saldo_receber | currency:'R$'}}</td>
+                                            <td style="padding: 3px;" class="text-right">{{x.saldo_repassar | currency:'R$'}}</td>
+                                            <td class="text-center">
+                                                <button class="btn btn-xs btn-primary" data-toggle="modal"
+                                                    id="btn_visualizarpedido" title="Visualizar Locaçao"
+                                                    data-target="#VisualizarLocacaoModal" ng-click="pegaMensalidade($index)"><i
+                                                    class="fa fa-search" />
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
-                        </div>
-                        <div class="col-lg-2 nomobile">
-                            <button type="button" id="btn_consultaratendimentos" title="Consultar Atendimentos"
-                                class="btn btn-w-m btn-m-s btn-primary clearfix-btn-s btn-icon">
-                                <i class="fa fa-spinner" />Consultar
-                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!--  {/* Retorno para a consulta de atendimentos. -->
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="ibox">
-                <div class="ibox-content">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Cliente</th>
-                                        <th>Imovel</th>
-                                        <th>Proprietário</th>
-                                        <th class="text-right">Valor do Contrato(R$)</th>
-                                        <th class="text-center">Situação</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Jose da Silva</td>
-                                        <td>Rua Antonio Saad, 2510</td>
-                                        <td>Rodobens </td>
-                                        <td class="text-right">5.200,00</td>
-                                        <td class="text-center"><span class="label label-success">Quitado</span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+
+    <div class="modal" id="VisualizarLocacaoModal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 class="modalheader">Gestão Financeira</h3>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <h4 class="m-t-none m-b title-op">Informações do Cliente</h4>
+                        <div class="col-lg-6">
+                            <label class="control-label">Nome</label> <br />{{formData.nome_cliente}}
+                        </div>
+                        <div class="col-lg-3">
+                            <label class="control-label">E-Mail</label> <br />{{formData.email_cliente}}
+                        </div>
+                        <div class="col-lg-3">
+                            <label class="control-label">Telefone</label> <br />{{formData.telefone_cliente}}
                         </div>
                     </div>
+
                 </div>
+                <div class="row">
+                    <div class="hr-line-dashed" />
+                    <div class="col-lg-12">
+                        <h4 class="m-t-none m-b title-op">Informações do Imóvel</h4>
+                            <div class="col-lg-3">
+                                <label class="control-label">Endereço</label> <br />{{formData.endereco}}
+                            </div>
+                            <div class="col-lg-3">
+                                <label class="control-label">Proprietário</label> <br />{{formData.nome_proprietario}}
+                            </div>
+                            <div class="col-lg-2">
+                                <label class="control-label">E-Mail do Proprietário</label> <br />{{formData.email_proprietario}}
+                            </div>
+                            <div class="col-lg-2">
+                                <label class="control-label">Telefone Proprietário</label> <br />{{formData.telefone_proprietario}}
+                            </div>
+                            <div class="col-lg-2">
+                                <label class="control-label">Dia Repasse</label> <br />{{formData.dia_repasse}}
+                            </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="hr-line-dashed" />
+                    <div class="col-lg-12">
+                        <h4 class="m-t-none m-b title-op">Mensalidades</h4>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Vencimento</th>
+                                    <th class="text-right">Taxa Administração</th>
+                                    <th class="text-right">Valor Aluguel</th>
+                                    <th class="text-right">Valor Condomínio</th>
+                                    <th class="text-right">Valor IPTU</th>
+                                    <th class="text-right">Valor Receber</th>
+                                    <th class="text-center">Recebido</th>
+                                    <th class="text-right">Valor Repasse</th>
+                                    <th class="text-center">Repassado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="x in mensalidades">
+                                    <td style="padding: 3px;" class="text-center">{{x.vencimento}}</td>
+                                    <td style="padding: 3px;" class="text-right">{{x.taxa_administracao | currency:'R$'}}</td>
+                                    <td style="padding: 3px;" class="text-right">{{x.valor_aluguel | currency:'R$'}}</td>
+                                    <td style="padding: 3px;" class="text-right">{{x.valor_condominio | currency:'R$'}}</td>
+                                    <td style="padding: 3px;" class="text-right">{{x.valor_iptu | currency:'R$'}}</td>
+                                    <td style="padding: 3px;" class="text-right">{{x.valor_receber | currency:'R$'}}</td>
+                                    <td style="padding: 3px;" class="text-center">
+                                        <input ng-change="receberMensalidade(x.id_mensalidade)" type="checkbox" id="mensalidade_check{{x.id_mensalidade}}" ng-model="formData.mensalidade_paga[x.id_mensalidade]"/>
+                                    </td>
+                                    <td style="padding: 3px;" class="text-right">{{x.valor_repassar | currency:'R$'}}</td>
+                                    <td style="padding: 3px;" class="text-center">
+                                        <input ng-change="pagarRepasse(x.id_mensalidade)" type="checkbox" id="repasse_check{{x.id_mensalidade}}" ng-model="formData.repasse[x.id_mensalidade]"/>
+                                    </td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">Fechar</button>
             </div>
         </div>
     </div>

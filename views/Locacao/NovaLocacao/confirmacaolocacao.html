@@ -56,19 +56,19 @@
                                 </thead>
                                 <tbody>
                                     <tr ng-repeat="x in mensalidades">
-                                        <th class="text-center">{{x.vencimento}}</th>
-                                        <th class="text-right">{{x.taxa_administracao}}</th>
-                                        <th class="text-right">{{x.valor_aluguel}}</th>
-                                        <th class="text-right">{{x.valor_condominio}}</th>
-                                        <th class="text-right">{{x.valor_iptu}}</th>
-                                        <th class="text-right">{{x.total_mes}}</th>
+                                        <td style="padding: 3px;" class="text-center">{{x.vencimento}}</td>
+                                        <td style="padding: 3px;" class="text-right">{{x.taxa_administracao | currency:'R$'}}</td>
+                                        <td style="padding: 3px;" class="text-right">{{x.valor_aluguel | currency:'R$'}}</td>
+                                        <td style="padding: 3px;" class="text-right">{{x.valor_condominio | currency:'R$'}}</td>
+                                        <td style="padding: 3px;" class="text-right">{{x.valor_iptu | currency:'R$'}}</td>
+                                        <td style="padding: 3px;" class="text-right">{{x.total_mes | currency:'R$'}}</td>
                                     </tr>
                                     
                                 </tbody>
                                 <tfoot>
                                     <tr class="text-right">
                                         <td colspan="5"><strong>Valor Total da Locação</strong></td>
-                                        <td><strong>2.250,00</strong></td>
+                                        <td><strong>{{total_contrato | currency:'R$'}}</strong></td>
                                     </tr>
                                 </tfoot>
                             </table>

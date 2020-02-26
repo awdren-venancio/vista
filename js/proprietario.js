@@ -57,9 +57,7 @@ function ProprietarioController($scope, $http, $state, $location, SweetAlert, no
                 '&telefone='    + $scope.formData.telefone+
                 '&dia_repasse=' + $scope.formData.dia_repasse
             ).then(function (response) {
-                console.log('resposta do php:')
-                console.log(response);
-
+                
                 if (response.status) {
 
                     SweetAlert.swal({

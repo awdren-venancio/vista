@@ -9,8 +9,10 @@
                             <div class="col-lg-4">
                                 <div class="form-group p-rt-15 p-lt-15">
                                     <label class="control-label" for="id_cliente">Cliente</label>
-                                    <select chosen ng-change="pegaCliente()" id="id_cliente" name="id_cliente" class="chosen-select" ng-model="formData.id_cliente">
-                                        <option ng-repeat="cli in clientes" value="{{cli.id_cliente}}">{{cli.nome}}</option>
+                                    <select chosen ng-change="pegaCliente()" id="id_cliente" name="id_cliente" class="chosen-select" ng-model="formData.id_cliente"
+                                        ng-options="cli.id_cliente as cli.nome for cli in clientes">
+                                        <option value></option>
+                                        <!--<option ng-repeat="cli in clientes" value="{{cli.id_cliente}}">{{cli.nome}}</option>-->
                                     </select>
                                 </div>
                             </div>
@@ -20,15 +22,31 @@
                         <div class="col-lg-9">
                             <h4 class="m-t-none m-b title-op">Informações do Imóvel</h4>
                             <div class="col-lg-4">
-                                <div class="form-group p-rt-15 p-lt-15">
+                                <!--<div class="form-group p-rt-15 p-lt-15">
                                     <label class="control-label" for="id_imovel">Endereço</label>
                                     <select chosen ng-change="pegaImovel()" id="id_imovel" name="id_imovel" class="chosen-select" ng-model="formData.id_imovel">
-                                        <option ng-repeat="imo in imoveis" value="{{imo.id_imovel}}">{{imo.endereco}}</option>
+                                        <option ng-repeat="imo in imoveis" value="{{imo.id_imovel}}">{{imo.id_imovel}}</option>
+                                    </select>
+                                </div>-->
+
+                                <div class="form-group p-rt-15 p-lt-15">
+                                    <label class="control-label" for="id_imovel">Endereço</label>
+                                    <select chosen ng-change="pegaImovel()" id="id_imovel" name="id_imovel" class="chosen-select" ng-model="formData.id_imovel"
+                                        ng-options="imo.id_imovel as imo.endereco for imo in imoveis">
+                                        <option value></option>
+                                        <!--<option ng-repeat="imo in imoveis" value="{{imo.id_imovel}}">{{imo.id_imovel}}</option>-->
                                     </select>
                                 </div>
+
+                                
                             </div>
                         </div>
                     </div>
+                    <div class="row p-tp-15">
+                        <div class="col-lg-9">
+                            <br><br><br><br>
+                        </div>
+                    </div>  
                     <div class="row">
                         <div class="col-lg-4 nomobile pull-right">
                             <button ui-sref="locacao.novalocacao.financeiro" title="Próxima Etapa" type="button"

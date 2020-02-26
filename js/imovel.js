@@ -39,9 +39,7 @@ function ImovelController($scope, $http, $state, $location, SweetAlert, notify) 
                 '&endereco='          + $scope.formData.endereco+
                 '&id_proprietario='   + $scope.formData.id_proprietario
             ).then(function (response) {
-                console.log('resposta do php:')
-                console.log(response);
-
+                
                 if (response.status) {
 
                     SweetAlert.swal({
@@ -98,7 +96,6 @@ function ImovelController($scope, $http, $state, $location, SweetAlert, notify) 
             '&id_proprietario=0'+
             '&string_busca=')
             .then(function (response) {
-                console.log(response)
                 $scope.proprietarios = response.data;
             }
         );

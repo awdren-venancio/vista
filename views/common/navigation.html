@@ -10,10 +10,9 @@
 
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <span class="clear">
-                            <span class="block m-t-xs p-tp-20"> <strong class="font-bold">Usuário</strong> </span>
-                            <span class="text-muted text-xs block">Cargo</span>
-
-                            <span class="text-muted text-xs block p-tp-10">Filial</span>
+                            <span class="block m-t-xs p-tp-20"> <strong class="font-bold">Menu</strong> </span>
+                            <!--<span class="text-muted text-xs block">Cargo</span>
+                            <span class="text-muted text-xs block p-tp-10">Filial</span>-->
                         </span>
                     </a>
                 </div>
@@ -29,7 +28,7 @@
                     <li ui-sref-active="active"><a
                             ui-sref="locacao.novalocacao.cliente">{{ 'Nova Locacao' | translate }}</a></li>
                     <li ui-sref-active="active"><a
-                            ui-sref="locacao.consultarlocacao">{{ 'Consultar Locação' | translate }}</a></li>
+                            ui-sref="locacao.consultarlocacao">{{ 'Gestão Financeira' | translate }}</a></li>
                 </ul>
             </li>
 
@@ -46,7 +45,7 @@
             </li>
 
             <li ng-class="{active: $state.includes('proprietario')}">
-                <a href="#"><i class="fa fa-user"></i> <span class="nav-label">Proprietario</span> <span
+                <a href="#"><i class="fa fa-male"></i> <span class="nav-label">Proprietario</span> <span
                         class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse" ng-class="{in: $state.includes('proprietario')}">
                     <li ui-sref-active="active"><a
@@ -58,7 +57,7 @@
             </li>
 
             <li ng-class="{active: $state.includes('imovel')}">
-                <a href="#"><i class="fa fa-user"></i> <span class="nav-label">Imóvel</span> <span
+                <a href="#"><i class="fa fa-building"></i> <span class="nav-label">Imóvel</span> <span
                         class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse" ng-class="{in: $state.includes('imovel')}">
                     <li ui-sref-active="active"><a

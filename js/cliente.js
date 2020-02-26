@@ -48,9 +48,7 @@ function ClienteController($scope, $http, $state, $location, SweetAlert, notify)
                 '&email='      + $scope.formData.email+
                 '&telefone='   + $scope.formData.telefone
             ).then(function (response) {
-                console.log('resposta do php:')
-                console.log(response);
-
+                
                 if (response.status) {
 
                     SweetAlert.swal({
@@ -87,7 +85,6 @@ function ClienteController($scope, $http, $state, $location, SweetAlert, notify)
             '&string_busca=' + $scope.input_busca)
             .then(function (response) {
 
-                console.log(response);
                 $scope.clientes = response.data;
 
                 if (id_cliente > 0 && response.data.length > 0){

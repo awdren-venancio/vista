@@ -62,8 +62,56 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
                 loadPlugin: function ($ocLazyLoad) {
                     return $ocLazyLoad.load([
                         {
+                            files: ['css/plugins/steps/jquery.steps.css']
+                        },
+                        {
+                            files: ['css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css']
+                        },
+                        {
+                            files: ['js/plugins/jasny/jasny-bootstrap.min.js', 'css/plugins/jasny/jasny-bootstrap.min.css']
+                        },
+                        {
                             name: 'ui.select',
                             files: ['js/plugins/ui-select/select.min.js', 'css/plugins/ui-select/select.min.css']
+                        },
+                        {
+                            insertBefore: '#loadBefore',
+                            name: 'localytics.directives',
+                            files: ['css/plugins/chosen/bootstrap-chosen.css', 'js/plugins/chosen/chosen.jquery.js', 'js/plugins/chosen/chosen.js']
+                        },
+                        {
+                            name: 'ui.switchery',
+                            files: ['css/plugins/switchery/switchery.css', 'js/plugins/switchery/switchery.js', 'js/plugins/switchery/ng-switchery.js']
+                        },
+                        {
+                            files: ['js/plugins/price-format/jquery.priceformat.min.js']
+                        },
+                        {
+                            files: ['js/plugins/angular-mask-input/angular-mask-input.js']
+                        },
+                        {
+                            files: ['js/plugins/sweetalert/sweetalert.min.js', 'css/plugins/sweetalert/sweetalert.css']
+                        },
+                        {
+                            name: 'oitozero.ngSweetAlert',
+                            files: ['js/plugins/sweetalert/angular-sweetalert.min.js']
+                        },
+                        {
+                            insertBefore: '#loadBefore',
+                            name: 'toaster',
+                            files: ['js/plugins/toastr/toastr.min.js']
+                        },
+                        {
+                            name: 'cgNotify',
+                            files: ['css/plugins/angular-notify/angular-notify.min.css', 'js/plugins/angular-notify/angular-notify.min.js']
+                        },
+                        {
+                            insertBefore: '#loadBefore',
+                            files: ['js/plugins/bootstrap-tour/bootstrap-tour.min.js', 'css/plugins/bootstrap-tour/bootstrap-tour.min.css']
+                        },
+                        {
+                            name: 'bm.bsTour',
+                            files: ['js/plugins/angular-bootstrap-tour/angular-bootstrap-tour.min.js']
                         }
                     ]);
                 }

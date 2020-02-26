@@ -37,8 +37,10 @@
                                 <div class="col-lg-6">
                                     <div class="form-group p-rt-15 p-lt-15">
                                         <label class="control-label" for="id_proprietario">Proprietário</label>
-                                        <select chosen id="id_proprietario" name="id_proprietario" class="chosen-select" ng-model="formData.id_proprietario">
-                                            <option ng-repeat="pro in proprietarios" value="{{pro.id_proprietario}}">{{pro.nome}}</option>
+                                        <select chosen id="id_proprietario" name="id_proprietario" class="chosen-select" ng-model="formData.id_proprietario"
+                                            ng-options="pro.id_proprietario as pro.nome for pro in proprietarios">
+                                            <option value></option>
+                                            <!--<option ng-repeat="pro in proprietarios" value="{{pro.id_proprietario}}">{{pro.nome}}</option>-->
                                         </select>
                                     </div>
                                 </div>
